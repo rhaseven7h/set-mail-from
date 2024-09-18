@@ -1,0 +1,35 @@
+{
+  "name": "set-mail-from",
+  "version": "1.0.0",
+  "description": "WordPress Set Mail From Plugin Support Package",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./assets/styles/styles.scss -o ./assets/styles/styles.dist.css",
+    "build:watch": "npx tailwindcss -i ./assets/styles/styles.scss -o ./assets/styles/styles.dist.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhaseven7h/set-mail-from.git"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "mail",
+    "from",
+    "address",
+    "sender"
+  ],
+  "author": "Gabriel Medina <rha7.com@gmail.com>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/rhaseven7h/set-mail-from/issues"
+  },
+  "homepage": "https://github.com/rhaseven7h/set-mail-from#readme",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.12"
+  }
+}

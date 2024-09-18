@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.tailwind-support {
+  @apply bg-blue-500 text-white;
+}

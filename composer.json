@@ -1,0 +1,6 @@
+{
+    "require": {
+        "smarty/smarty": "^5.4",
+        "mustache/mustache": "^2.14"
+    }
+}
