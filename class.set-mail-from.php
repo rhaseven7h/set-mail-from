@@ -38,6 +38,23 @@ if ( ! class_exists( 'Set_Mail_From' ) ) {
 				self::$options['from-email'],
 				self::$options['from-name']
 			);
+
+			$senderEmail = self::$options['from-email'];
+			$senderName  = self::$options['from-name'];
+			if ( ! empty( $senderEmail ) && ! empty( $senderName ) ) {
+				add_filter( 'wp_mail_from',
+					function ()
+					use ( $senderEmail ) {
+						return $senderEmail;
+					}
+				);
+				add_filter( 'wp_mail_from_name',
+					function ()
+					use ( $senderName ) {
+						return $senderName;
+					}
+				);
+			}
 		}
 
 		public static function activate(): void {
