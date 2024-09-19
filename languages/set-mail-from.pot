@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Set Mail From\n"
-"POT-Creation-Date: 2024-09-18 19:37-0600\n"
+"POT-Creation-Date: 2024-09-18 21:48-0600\n"
 "PO-Revision-Date: 2024-09-18 19:37-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -62,16 +62,26 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
-#: class.set-mail-from-settings-page.php:161
+#: class.set-mail-from-settings-page.php:157
 msgid "General settings for the Set Mail From plugin."
 msgstr ""
 
-#: class.set-mail-from-settings-page.php:165
+#: class.set-mail-from-settings-page.php:158
+msgid "Notes:"
+msgstr ""
+
+#: class.set-mail-from-settings-page.php:160
+msgid "Changing these settings may affect the deliverability of your emails. "
+msgstr ""
+
+#: class.set-mail-from-settings-page.php:161
 msgid ""
-"Warning: Changing these settings may affect the deliverability of your "
-"emails. Some email providers may reject emails that do not match the domain "
-"of the website. Leaving these fields empty will use the default WordPress "
-"settings."
+"Some email providers may reject emails that do not match the domain of the "
+"website. "
+msgstr ""
+
+#: class.set-mail-from-settings-page.php:162
+msgid "Leaving these fields empty will use the default WordPress settings."
 msgstr ""
 
 #: class.set-mail-from-settings-page.php:176

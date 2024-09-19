@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Set Mail From\n"
-"POT-Creation-Date: 2024-09-18 19:37-0600\n"
-"PO-Revision-Date: 2024-09-18 19:39-0600\n"
+"POT-Creation-Date: 2024-09-18 21:48-0600\n"
+"PO-Revision-Date: 2024-09-18 21:50-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -62,21 +62,31 @@ msgstr "Ajustes guardados"
 msgid "Save Settings"
 msgstr "Guardar Ajustes"
 
-#: class.set-mail-from-settings-page.php:161
+#: class.set-mail-from-settings-page.php:157
 msgid "General settings for the Set Mail From plugin."
 msgstr "Configuración general del plugin Establecer Remitente de Correo."
 
-#: class.set-mail-from-settings-page.php:165
-msgid ""
-"Warning: Changing these settings may affect the deliverability of your "
-"emails. Some email providers may reject emails that do not match the domain "
-"of the website. Leaving these fields empty will use the default WordPress "
-"settings."
+#: class.set-mail-from-settings-page.php:158
+msgid "Notes:"
+msgstr "Notas:"
+
+#: class.set-mail-from-settings-page.php:160
+msgid "Changing these settings may affect the deliverability of your emails. "
 msgstr ""
-"Advertencia: El cambio de estos ajustes puede afectar a la capacidad de "
-"entrega de sus correos electrónicos. \n"
-"Algunos proveedores de correo electrónico pueden rechazar correos que no "
-"coincidan con el dominio del sitio web. \n"
+"El cambio de estos ajustes puede afectar a la capacidad de entrega de sus "
+"correos electrónicos. "
+
+#: class.set-mail-from-settings-page.php:161
+msgid ""
+"Some email providers may reject emails that do not match the domain of the "
+"website. "
+msgstr ""
+"Algunos proveedores de correo electrónico pueden rechazar mensajes que no "
+"coincidan con el dominio del sitio web. "
+
+#: class.set-mail-from-settings-page.php:162
+msgid "Leaving these fields empty will use the default WordPress settings."
+msgstr ""
 "Si deja estos campos vacíos, utilizará la configuración predeterminada de "
 "WordPress."
 
@@ -113,3 +123,16 @@ msgstr "Gabriel Medina"
 #. Author URI of the plugin/theme
 msgid "http://rhaseven7h.com/author/gmedina"
 msgstr "http://rhaseven7h.com/author/gmedina"
+
+#~ msgid ""
+#~ "Warning: Changing these settings may affect the deliverability of your "
+#~ "emails. Some email providers may reject emails that do not match the "
+#~ "domain of the website. Leaving these fields empty will use the default "
+#~ "WordPress settings."
+#~ msgstr ""
+#~ "Advertencia: El cambio de estos ajustes puede afectar a la capacidad de "
+#~ "entrega de sus correos electrónicos. \n"
+#~ "Algunos proveedores de correo electrónico pueden rechazar correos que no "
+#~ "coincidan con el dominio del sitio web. \n"
+#~ "Si deja estos campos vacíos, utilizará la configuración predeterminada de "
+#~ "WordPress."
