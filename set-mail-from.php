@@ -29,8 +29,6 @@
  * along with MV Slider. If not, see http://www.gnu.org/licenses/gpl-2.0.html.
  */
 
-error_log( "HERE! 1" );
-
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'No direct access allowed' );
 }

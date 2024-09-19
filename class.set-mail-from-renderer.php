@@ -4,6 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'No direct access allowed' );
 }
 
+require_once 'vendor/autoload.php';
+
 require_once 'constants.php';
 
 if ( ! class_exists( 'Set_Mail_From_Renderer' ) ) {

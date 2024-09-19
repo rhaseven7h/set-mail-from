@@ -4,9 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'No direct access allowed' );
 }
 
-error_log( "Set Mail From plugin start ..." );
-
 require_once 'constants.php';
+require_once 'class.set-mail-from-renderer.php';
+require_once 'class.set-mail-from-styles.php';
+require_once 'class.set-mail-from-settings-page.php';
 
 if ( ! class_exists( 'Set_Mail_From' ) ) {
 	class Set_Mail_From {
@@ -55,13 +56,9 @@ if ( ! class_exists( 'Set_Mail_From' ) ) {
 	}
 }
 
-error_log( "Set Mail From plugin loading ..." );
-
 if ( class_exists( 'Set_Mail_From' ) ) {
 	register_activation_hook( __FILE__, array( 'Set_Mail_From', 'activate' ) );
 	register_deactivation_hook( __FILE__, array( 'Set_Mail_From', 'deactivate' ) );
 	register_uninstall_hook( __FILE__, array( 'Set_Mail_From', 'uninstall' ) );
 	new Set_Mail_From();
 }
-
-error_log( "Set Mail From plugin loaded" );

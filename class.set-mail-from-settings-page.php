@@ -9,13 +9,13 @@ require_once 'constants.php';
 if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 	class Set_Mail_From_Settings_Page {
 		private Set_Mail_From_Renderer $renderer;
-		private string $name;
 		private string $email;
+		private string $name;
 
-		public function __construct( Set_Mail_From_Renderer $renderer, string $name, string $email ) {
+		public function __construct( Set_Mail_From_Renderer $renderer, string $email, string $name ) {
 			$this->renderer = $renderer;
-			$this->name     = $name;
 			$this->email    = $email;
+			$this->name     = $name;
 			add_action( 'admin_init', array( $this, 'register_settings' ) );
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		}
@@ -73,10 +73,47 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 		}
 
 		public function sanitize_options( $options ): array {
-			$options['from-email'] = sanitize_email( $options['from-email'] );
-			$options['from-name']  = sanitize_text_field( $options['from-name'] );
+			$old_options = get_option( 'set-mail-from-options' );
+			$has_errors  = false;
 
-			return $options;
+			$newEmail = empty( $options['from-email'] ) ? '' : $options['from-email'];
+			$newEmail = is_string( $newEmail ) ? $newEmail : '';
+			$newEmail = trim( $newEmail );
+			$newEmail = sanitize_email( $newEmail );
+
+			$newName = empty( $options['from-name'] ) ? '' : $options['from-name'];
+			$newName = is_string( $newName ) ? $newName : '';
+			$newName = trim( $newName );
+			$newName = sanitize_text_field( $newName );
+
+			if ( $newEmail xor $newName ) {
+				add_settings_error(
+					'set-mail-from-options',
+					'set-mail-from',
+					esc_html__(
+						'Either both fields must be filled, or both fields must be empty.',
+						'set-mail-from'
+					)
+				);
+				$has_errors = true;
+			}
+			if ( $newEmail && ! is_email( $newEmail ) ) {
+				add_settings_error(
+					'set-mail-from-options',
+					'set-mail-from',
+					esc_html__( 'Invalid email address.', 'set-mail-from' )
+				);
+				$has_errors = true;
+			}
+
+			if ( $has_errors ) {
+				return $old_options;
+			}
+
+			return array(
+				'from-email' => $newEmail,
+				'from-name'  => $newName
+			);
 		}
 
 		public function render_admin_options_page(): void {
@@ -84,7 +121,10 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 				return;
 			}
 
-			if ( isset( $_GET['settings-updated'] ) ) {
+			if (
+				isset( $_GET['settings-updated'] )
+				&& empty( get_settings_errors( 'set-mail-from' ) )
+			) {
 				add_settings_error(
 					'set-mail-from-options',
 					'set-mail-from',
@@ -114,12 +154,21 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 		}
 
 		public function render_section_general(): void {
-			$this->renderer->render( 'set-mail-from-settings-section-general-description', array(
-				'section_description' => esc_html__(
-					'General settings for the Set Mail From plugin.',
-					'set-mail-from'
+			$this->renderer->render(
+				'set-mail-from-settings-section-general-description',
+				array(
+					'description' => esc_html__(
+						'General settings for the Set Mail From plugin.',
+						'set-mail-from'
+					),
+					'warning'     => esc_html__(
+						'Warning: Changing these settings may affect the deliverability of your emails. ' .
+						'Some email providers may reject emails that do not match the domain of the website. ' .
+						'Leaving these fields empty will use the default WordPress settings.',
+						'set-mail-from'
+					)
 				)
-			) );
+			);
 		}
 
 		public function render_email_field(): void {
