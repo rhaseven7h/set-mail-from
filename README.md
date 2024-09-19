@@ -37,8 +37,10 @@ The **Set Mail From** plugin allows you to customize the sender's email address 
 
 ## Screenshots
 
-1. **Settings Page:**
-   ![Settings Page](screenshot-1.png)
+1. **Settings Menu:**
+   ![Settings Menu Screenshot](assets/images/set-mail-from-screenshot-1.png)
+2. **Settings Form:**
+   ![Settings Form Screenshot](assets/images/set-mail-from-screenshot-2.png)
 
 ## Frequently Asked Questions
 
@@ -52,9 +54,7 @@ If the fields are left empty, the default WordPress settings will be used.
 
 ## Changelog
 
-### 1.0.0
-
-- Initial release.
+See [CHANGELOG.md](CHANGELOG.md) for the latest changes.
 
 ## Credits
 
