@@ -145,7 +145,7 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 			submit_button( __( 'Save Settings', 'set-mail-from' ) );
 			$submit_button = ob_get_clean();
 
-			$this->renderer->render( 'set-mail-from-admin-options-page', array(
+			$this->renderer->render( 'options-page', array(
 				'pageTitle'            => esc_html( get_admin_page_title() ),
 				'settings_fields'      => $settings_fields,
 				'do_settings_sections' => $do_settings_sections,
@@ -154,19 +154,19 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 		}
 
 		public function render_section_general(): void {
+			$description = esc_html__( 'General settings for the Set Mail From plugin.', 'set-mail-from' );
+			$notes_title = esc_html__( 'Notes:', 'set-mail-from' );
+			$notes_list  = array(
+				esc_html__( 'Changing these settings may affect the deliverability of your emails. ', 'set-mail-from' ),
+				esc_html__( 'Some email providers may reject emails that do not match the domain of the website. ', 'set-mail-from' ),
+				esc_html__( 'Leaving these fields empty will use the default WordPress settings.', 'set-mail-from' ),
+			);
 			$this->renderer->render(
-				'set-mail-from-settings-section-general-description',
+				'general-section',
 				array(
-					'description' => esc_html__(
-						'General settings for the Set Mail From plugin.',
-						'set-mail-from'
-					),
-					'warning'     => esc_html__(
-						'Warning: Changing these settings may affect the deliverability of your emails. ' .
-						'Some email providers may reject emails that do not match the domain of the website. ' .
-						'Leaving these fields empty will use the default WordPress settings.',
-						'set-mail-from'
-					)
+					'description' => $description,
+					'notes_title' => $notes_title,
+					'notes_list'  => $notes_list
 				)
 			);
 		}
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 			$field_placeholder = esc_html__( "Sender's email", 'set-mail-from' );
 			$field_description = esc_html__( 'The email of the sender.', 'set-mail-from' );
 			$this->renderer->render(
-				'set-mail-from-email-input-field',
+				'email-input-field',
 				array(
 					'field_value'       => $field_value,
 					'field_placeholder' => $field_placeholder,
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Set_Mail_From_Settings_Page' ) ) {
 			$field_placeholder = esc_html__( "Sender's name", 'set-mail-from' );
 			$field_description = esc_html__( 'The name of the sender.', 'set-mail-from' );
 			$this->renderer->render(
-				'set-mail-from-name-input-field',
+				'name-input-field',
 				array(
 					'field_value'       => $field_value,
 					'field_placeholder' => $field_placeholder,
