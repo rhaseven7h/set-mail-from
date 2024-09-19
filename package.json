@@ -1,6 +1,6 @@
 {
   "name": "set-mail-from",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "WordPress Set Mail From Plugin Support Package",
   "main": "index.js",
   "scripts": {

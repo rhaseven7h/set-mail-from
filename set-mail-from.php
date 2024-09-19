@@ -4,7 +4,7 @@
  * Plugin Name: Set Mail From
  * Plugin URI: https://rhaseven7h.com/wordpress-set-mail-from-plugin/
  * Description: A simple plugin for WordPress to change the “Mail From” email and name.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Gabriel Medina
  * Author URI: http://rhaseven7h.com/author/gmedina
  * License: GPL2 or later
